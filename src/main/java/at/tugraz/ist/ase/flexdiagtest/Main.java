@@ -21,6 +21,7 @@ import java.util.Set;
 import static at.tugraz.ist.ase.cacdr.algorithms.FastDiagV2.TIMER_FASTDIAGV2;
 import static at.tugraz.ist.ase.cacdr.algorithms.FlexDiag.TIMER_FLEXDIAG;
 import static at.tugraz.ist.ase.cacdr.algorithms.QuickXPlain.TIMER_QUICKXPLAIN;
+import static at.tugraz.ist.ase.cacdr.algorithms.hsdag.AbstractHSConstructor.TIMER_CONFLICT;
 import static at.tugraz.ist.ase.cacdr.eval.CAEvaluator.TIMER_SOLVER;
 import static at.tugraz.ist.ase.cacdr.eval.CAEvaluator.printPerformance;
 import static at.tugraz.ist.ase.common.ConstraintUtils.convertToStringWithMessage;
@@ -33,8 +34,8 @@ public class Main {
     public static void main(String[] args) {
         // uncomment one of the following KBs to choose a KB to use
 //        KB kb = new NOK1_1KB(); // initialize the knowledge base model_1_nok_1
-        KB kb = new NOK1_2KB(); // initialize the knowledge base model_1_nok_2
-//        KB kb = new NOK1_3KB(); // initialize the knowledge base model_1_nok_3
+//        KB kb = new NOK1_2KB(); // initialize the knowledge base model_1_nok_2
+        KB kb = new NOK1_3KB(); // initialize the knowledge base model_1_nok_3
 //        KB kb = new NOK2KB(); // initialize the knowledge base model_2_nok
 //        KB kb = new NOK3KB(); // initialize the knowledge base model_2_nok
 
@@ -97,7 +98,7 @@ public class Main {
 //                printPerformance();
 
                 for (int i = 0; i < allConflictSets.size(); i++) {
-                    System.out.println("Time for conflict " + (i + 1) + ": " + ((double) getTimer(TIMER_QUICKXPLAIN).getTimings().get(i) / 1_000_000_000.0));
+                    System.out.println("Time for conflict " + (i + 1) + ": " + ((double) getTimer(TIMER_CONFLICT).getTimings().get(i) / 1_000_000_000.0));
                     System.out.println("Time for solver: " + ((double) getTimer(TIMER_SOLVER).getTimings().get(i) / 1_000_000_000.0));
                 }
             }
@@ -142,7 +143,7 @@ public class Main {
 //                printPerformance();
 
                 for (int i = 0; i < allDiagnoses.size(); i++) {
-                    System.out.println("Time for diagnosis " + (i + 1) + ": " + ((double) getTimer(TIMER_FLEXDIAG).getTimings().get(i) / 1_000_000_000.0));
+                    System.out.println("Time for diagnosis " + (i + 1) + ": " + ((double) getTimer(TIMER_CONFLICT).getTimings().get(i) / 1_000_000_000.0));
                     System.out.println("Time for solver: " + ((double) getTimer(TIMER_SOLVER).getTimings().get(i) / 1_000_000_000.0));
                 }
             }
@@ -188,7 +189,7 @@ public class Main {
 //                printPerformance();
 
                 for (int i = 0; i < allDiagnoses.size(); i++) {
-                    System.out.println("Time for diagnosis " + (i+1) + ": " + ((double) getTimer(TIMER_FASTDIAGV2).getTimings().get(i) / 1_000_000_000.0));
+                    System.out.println("Time for diagnosis " + (i+1) + ": " + ((double) getTimer(TIMER_CONFLICT).getTimings().get(i) / 1_000_000_000.0));
                     System.out.println("Time for solver: " + ((double) getTimer(TIMER_SOLVER).getTimings().get(i) / 1_000_000_000.0));
                 }
             }
