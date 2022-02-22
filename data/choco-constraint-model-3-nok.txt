@@ -1,0 +1,224 @@
+import org.chocosolver.solver.*;
+import org.chocosolver.solver.variables.*;
+import org.chocosolver.solver.constraints.*;
+import org.chocosolver.solver.expression.discrete.relational.*;
+
+Model m = new Model("DPPM Execution Graph Generation");
+
+IntVar dppm_vm_0 = m.intVar("dppm_vm_0", new int[]{0}); // V0
+IntVar dppm_vm_1 = m.intVar("dppm_vm_1", new int[]{1,2,3,4}); // V1
+IntVar dppm_vm_2 = m.intVar("dppm_vm_2", new int[]{1,2,3,4}); // V2
+IntVar dppm_vm_3 = m.intVar("dppm_vm_3", new int[]{5,6}); // V3
+IntVar dppm_vm_4 = m.intVar("dppm_vm_4", new int[]{5,6}); // V4
+IntVar dppm_vm_5 = m.intVar("dppm_vm_5", new int[]{7,8,9,10,11,12,13}); // V5
+IntVar dppm_vm_6 = m.intVar("dppm_vm_6", new int[]{7,8,9,10,11,12,13}); // V6
+IntVar dppm_vm_7 = m.intVar("dppm_vm_7", new int[]{14}); // V7
+IntVar dppm_vm_8 = m.intVar("dppm_vm_8", new int[]{15,16,17,18,19,20}); // V8
+IntVar dppm_vm_9 = m.intVar("dppm_vm_9", new int[]{21,22}); // V9
+IntVar dppm_vm_10 = m.intVar("dppm_vm_10", new int[]{23}); // V10
+IntVar dppm_vm_11 = m.intVar("dppm_vm_11", new int[]{24}); // V11
+
+IntVar[] vm_array = new IntVar[]{dppm_vm_0,dppm_vm_1,dppm_vm_2,dppm_vm_3,dppm_vm_4,dppm_vm_5,dppm_vm_6,dppm_vm_7,dppm_vm_8,dppm_vm_9,dppm_vm_10,dppm_vm_11};
+
+IntVar dppm_vs_0 = m.intVar("dppm_vs_0", 0, 11); // V12
+IntVar dppm_vs_1 = m.intVar("dppm_vs_1", 0, 11); // V13
+IntVar dppm_vs_2 = m.intVar("dppm_vs_2", 0, 11); // V14
+IntVar dppm_vs_3 = m.intVar("dppm_vs_3", 0, 11); // V15
+IntVar dppm_vs_4 = m.intVar("dppm_vs_4", 0, 11); // V16
+IntVar dppm_vs_5 = m.intVar("dppm_vs_5", 0, 11); // V17
+IntVar dppm_vs_6 = m.intVar("dppm_vs_6", 0, 11); // V18
+IntVar dppm_vs_7 = m.intVar("dppm_vs_7", 0, 11); // V19
+IntVar dppm_vs_8 = m.intVar("dppm_vs_8", 0, 11); // V20
+IntVar dppm_vs_9 = m.intVar("dppm_vs_9", 0, 11); // V21
+IntVar dppm_vs_10 = m.intVar("dppm_vs_10", 0, 11); // V22
+IntVar dppm_vs_11 = m.intVar("dppm_vs_11", 0, 11); // V23
+
+IntVar[] vs_array = new IntVar[]{dppm_vs_0,dppm_vs_1,dppm_vs_2,dppm_vs_3,dppm_vs_4,dppm_vs_5,dppm_vs_6,dppm_vs_7,dppm_vs_8,dppm_vs_9,dppm_vs_10,dppm_vs_11};
+
+// Constraints - group 1
+dppm_vm_0.eq(dppm_vm_1).imp(dppm_vs_0.ne(dppm_vs_1)).post(); // C1
+dppm_vm_0.eq(dppm_vm_2).imp(dppm_vs_0.ne(dppm_vs_2)).post(); // C2
+dppm_vm_0.eq(dppm_vm_3).imp(dppm_vs_0.ne(dppm_vs_3)).post(); // C3
+dppm_vm_0.eq(dppm_vm_4).imp(dppm_vs_0.ne(dppm_vs_4)).post(); // C4
+dppm_vm_0.eq(dppm_vm_5).imp(dppm_vs_0.ne(dppm_vs_5)).post(); // C5
+dppm_vm_0.eq(dppm_vm_6).imp(dppm_vs_0.ne(dppm_vs_6)).post(); // C6
+dppm_vm_0.eq(dppm_vm_7).imp(dppm_vs_0.ne(dppm_vs_7)).post(); // C7
+dppm_vm_0.eq(dppm_vm_8).imp(dppm_vs_0.ne(dppm_vs_8)).post(); // C8
+dppm_vm_0.eq(dppm_vm_9).imp(dppm_vs_0.ne(dppm_vs_9)).post(); // C9
+dppm_vm_0.eq(dppm_vm_10).imp(dppm_vs_0.ne(dppm_vs_10)).post(); // C10
+dppm_vm_0.eq(dppm_vm_11).imp(dppm_vs_0.ne(dppm_vs_11)).post(); // C11
+
+dppm_vm_1.eq(dppm_vm_2).imp(dppm_vs_1.ne(dppm_vs_2)).post(); // C12
+dppm_vm_1.eq(dppm_vm_3).imp(dppm_vs_1.ne(dppm_vs_3)).post(); // C13
+dppm_vm_1.eq(dppm_vm_4).imp(dppm_vs_1.ne(dppm_vs_4)).post(); // C14
+dppm_vm_1.eq(dppm_vm_5).imp(dppm_vs_1.ne(dppm_vs_5)).post(); // C15
+dppm_vm_1.eq(dppm_vm_6).imp(dppm_vs_1.ne(dppm_vs_6)).post(); // C16
+dppm_vm_1.eq(dppm_vm_7).imp(dppm_vs_1.ne(dppm_vs_7)).post(); // C17
+dppm_vm_1.eq(dppm_vm_8).imp(dppm_vs_1.ne(dppm_vs_8)).post(); // C18
+dppm_vm_1.eq(dppm_vm_9).imp(dppm_vs_1.ne(dppm_vs_9)).post(); // C19
+dppm_vm_1.eq(dppm_vm_10).imp(dppm_vs_1.ne(dppm_vs_10)).post(); // C20
+dppm_vm_1.eq(dppm_vm_11).imp(dppm_vs_1.ne(dppm_vs_11)).post(); // C21
+
+dppm_vm_2.eq(dppm_vm_3).imp(dppm_vs_2.ne(dppm_vs_3)).post(); // C22
+dppm_vm_2.eq(dppm_vm_4).imp(dppm_vs_2.ne(dppm_vs_4)).post(); // C23
+dppm_vm_2.eq(dppm_vm_5).imp(dppm_vs_2.ne(dppm_vs_5)).post(); // C24
+dppm_vm_2.eq(dppm_vm_6).imp(dppm_vs_2.ne(dppm_vs_6)).post(); // C25
+dppm_vm_2.eq(dppm_vm_7).imp(dppm_vs_2.ne(dppm_vs_7)).post(); // C26
+dppm_vm_2.eq(dppm_vm_8).imp(dppm_vs_2.ne(dppm_vs_8)).post(); // C27
+dppm_vm_2.eq(dppm_vm_9).imp(dppm_vs_2.ne(dppm_vs_9)).post(); // C28
+dppm_vm_2.eq(dppm_vm_10).imp(dppm_vs_2.ne(dppm_vs_10)).post(); // C29
+dppm_vm_2.eq(dppm_vm_11).imp(dppm_vs_2.ne(dppm_vs_11)).post(); // C30
+
+dppm_vm_3.eq(dppm_vm_4).imp(dppm_vs_3.ne(dppm_vs_4)).post(); // C31
+dppm_vm_3.eq(dppm_vm_5).imp(dppm_vs_3.ne(dppm_vs_5)).post(); // C32
+dppm_vm_3.eq(dppm_vm_6).imp(dppm_vs_3.ne(dppm_vs_6)).post(); // C33
+dppm_vm_3.eq(dppm_vm_7).imp(dppm_vs_3.ne(dppm_vs_7)).post(); // C34
+dppm_vm_3.eq(dppm_vm_8).imp(dppm_vs_3.ne(dppm_vs_8)).post(); // C35
+dppm_vm_3.eq(dppm_vm_9).imp(dppm_vs_3.ne(dppm_vs_9)).post(); // C36
+dppm_vm_3.eq(dppm_vm_10).imp(dppm_vs_3.ne(dppm_vs_10)).post(); // C37
+dppm_vm_3.eq(dppm_vm_11).imp(dppm_vs_3.ne(dppm_vs_11)).post(); // C38
+
+dppm_vm_4.eq(dppm_vm_5).imp(dppm_vs_4.ne(dppm_vs_5)).post(); // C39
+dppm_vm_4.eq(dppm_vm_6).imp(dppm_vs_4.ne(dppm_vs_6)).post(); // C40
+dppm_vm_4.eq(dppm_vm_7).imp(dppm_vs_4.ne(dppm_vs_7)).post(); // C41
+dppm_vm_4.eq(dppm_vm_8).imp(dppm_vs_4.ne(dppm_vs_8)).post(); // C42
+dppm_vm_4.eq(dppm_vm_9).imp(dppm_vs_4.ne(dppm_vs_9)).post(); // C43
+dppm_vm_4.eq(dppm_vm_10).imp(dppm_vs_4.ne(dppm_vs_10)).post(); // C44
+dppm_vm_4.eq(dppm_vm_11).imp(dppm_vs_4.ne(dppm_vs_11)).post(); // C45
+
+dppm_vm_5.eq(dppm_vm_6).imp(dppm_vs_5.ne(dppm_vs_6)).post(); // C46
+dppm_vm_5.eq(dppm_vm_7).imp(dppm_vs_5.ne(dppm_vs_7)).post(); // C47
+dppm_vm_5.eq(dppm_vm_8).imp(dppm_vs_5.ne(dppm_vs_8)).post(); // C48
+dppm_vm_5.eq(dppm_vm_9).imp(dppm_vs_5.ne(dppm_vs_9)).post(); // C49
+dppm_vm_5.eq(dppm_vm_10).imp(dppm_vs_5.ne(dppm_vs_10)).post(); // C50
+dppm_vm_5.eq(dppm_vm_11).imp(dppm_vs_5.ne(dppm_vs_11)).post(); // C51
+
+dppm_vm_6.eq(dppm_vm_7).imp(dppm_vs_6.ne(dppm_vs_7)).post(); // C52
+dppm_vm_6.eq(dppm_vm_8).imp(dppm_vs_6.ne(dppm_vs_8)).post(); // C53
+dppm_vm_6.eq(dppm_vm_9).imp(dppm_vs_6.ne(dppm_vs_9)).post(); // C54
+dppm_vm_6.eq(dppm_vm_10).imp(dppm_vs_6.ne(dppm_vs_10)).post(); // C55
+dppm_vm_6.eq(dppm_vm_11).imp(dppm_vs_6.ne(dppm_vs_11)).post(); // C56
+
+dppm_vm_7.eq(dppm_vm_8).imp(dppm_vs_7.ne(dppm_vs_8)).post(); // C57
+dppm_vm_7.eq(dppm_vm_9).imp(dppm_vs_7.ne(dppm_vs_9)).post(); // C58
+dppm_vm_7.eq(dppm_vm_10).imp(dppm_vs_7.ne(dppm_vs_10)).post(); // C59
+dppm_vm_7.eq(dppm_vm_11).imp(dppm_vs_7.ne(dppm_vs_11)).post(); // C60
+
+dppm_vm_8.eq(dppm_vm_9).imp(dppm_vs_8.ne(dppm_vs_9)).post(); // C61
+dppm_vm_8.eq(dppm_vm_10).imp(dppm_vs_8.ne(dppm_vs_10)).post(); // C62
+dppm_vm_8.eq(dppm_vm_11).imp(dppm_vs_8.ne(dppm_vs_11)).post(); // C63
+
+dppm_vm_9.eq(dppm_vm_10).imp(dppm_vs_9.ne(dppm_vs_10)).post(); // C64
+dppm_vm_9.eq(dppm_vm_11).imp(dppm_vs_9.ne(dppm_vs_11)).post(); // C65
+
+dppm_vm_10.eq(dppm_vm_11).imp(dppm_vs_10.ne(dppm_vs_11)).post(); // C66
+
+dppm_vs_0.ne(dppm_vs_1).post(); // C67
+dppm_vs_0.ne(dppm_vs_2).post(); // C68
+dppm_vs_0.ne(dppm_vs_3).post(); // C69
+dppm_vs_0.ne(dppm_vs_4).post(); // C70
+dppm_vs_0.ne(dppm_vs_5).post(); // C71
+dppm_vs_0.ne(dppm_vs_6).post(); // C72
+dppm_vs_0.ne(dppm_vs_7).post(); // C73
+dppm_vs_0.ne(dppm_vs_8).post(); // C74
+dppm_vs_0.ne(dppm_vs_9).post(); // C75
+dppm_vs_0.ne(dppm_vs_10).post(); // C76
+dppm_vs_0.ne(dppm_vs_11).post(); // C77
+
+dppm_vs_1.ne(dppm_vs_2).post(); // C78
+dppm_vs_1.ne(dppm_vs_3).post(); // C79
+dppm_vs_1.ne(dppm_vs_4).post(); // C80
+dppm_vs_1.ne(dppm_vs_5).post(); // C81
+dppm_vs_1.ne(dppm_vs_6).post(); // C82
+dppm_vs_1.ne(dppm_vs_7).post(); // C83
+dppm_vs_1.ne(dppm_vs_8).post(); // C84
+dppm_vs_1.ne(dppm_vs_9).post(); // C85
+dppm_vs_1.ne(dppm_vs_10).post(); // C86
+dppm_vs_1.ne(dppm_vs_11).post(); // C87
+
+dppm_vs_2.ne(dppm_vs_3).post(); // C88
+dppm_vs_2.ne(dppm_vs_4).post(); // C89
+dppm_vs_2.ne(dppm_vs_5).post(); // C90
+dppm_vs_2.ne(dppm_vs_6).post(); // C91
+dppm_vs_2.ne(dppm_vs_7).post(); // C92
+dppm_vs_2.ne(dppm_vs_8).post(); // C93
+dppm_vs_2.ne(dppm_vs_9).post(); // C94
+dppm_vs_2.ne(dppm_vs_10).post(); // C95
+dppm_vs_2.ne(dppm_vs_11).post(); // C96
+
+dppm_vs_3.ne(dppm_vs_4).post(); // C97
+dppm_vs_3.ne(dppm_vs_5).post(); // C98
+dppm_vs_3.ne(dppm_vs_6).post(); // C99
+dppm_vs_3.ne(dppm_vs_7).post(); // C100
+dppm_vs_3.ne(dppm_vs_8).post(); // C101
+dppm_vs_3.ne(dppm_vs_9).post(); // C102
+dppm_vs_3.ne(dppm_vs_10).post(); // C103
+dppm_vs_3.ne(dppm_vs_11).post(); // C104
+
+dppm_vs_4.ne(dppm_vs_5).post(); // C105
+dppm_vs_4.ne(dppm_vs_6).post(); // C106
+dppm_vs_4.ne(dppm_vs_7).post(); // C107
+dppm_vs_4.ne(dppm_vs_8).post(); // C108
+dppm_vs_4.ne(dppm_vs_9).post(); // C109
+dppm_vs_4.ne(dppm_vs_10).post(); // C110
+dppm_vs_4.ne(dppm_vs_11).post(); // C111
+
+dppm_vs_5.ne(dppm_vs_6).post(); // C112
+dppm_vs_5.ne(dppm_vs_7).post(); // C113
+dppm_vs_5.ne(dppm_vs_8).post(); // C114
+dppm_vs_5.ne(dppm_vs_9).post(); // C115
+dppm_vs_5.ne(dppm_vs_10).post(); // C116
+dppm_vs_5.ne(dppm_vs_11).post(); // C117
+
+dppm_vs_6.ne(dppm_vs_7).post(); // C118
+dppm_vs_6.ne(dppm_vs_8).post(); // C119
+dppm_vs_6.ne(dppm_vs_9).post(); // C120
+dppm_vs_6.ne(dppm_vs_10).post(); // C121
+dppm_vs_6.ne(dppm_vs_11).post(); // C122
+
+dppm_vs_7.ne(dppm_vs_8).post(); // C123
+dppm_vs_7.ne(dppm_vs_9).post(); // C124
+dppm_vs_7.ne(dppm_vs_10).post(); // C125
+dppm_vs_7.ne(dppm_vs_11).post(); // C126
+
+dppm_vs_8.ne(dppm_vs_9).post(); // C127
+dppm_vs_8.ne(dppm_vs_10).post(); // C128
+dppm_vs_8.ne(dppm_vs_11).post(); // C129
+
+dppm_vs_9.ne(dppm_vs_10).post(); // C130
+dppm_vs_9.ne(dppm_vs_11).post(); // C131
+
+dppm_vs_10.ne(dppm_vs_11).post(); // C132
+
+m.arithm(dppm_vs_0, "<", dppm_vs_1).post(); // C133
+m.arithm(dppm_vs_0, "<", dppm_vs_2).post(); // C134
+m.arithm(dppm_vs_1, "<", dppm_vs_3).post(); // C135
+m.arithm(dppm_vs_2, "<", dppm_vs_3).post(); // C136
+m.arithm(dppm_vs_1, "<", dppm_vs_4).post(); // C137
+m.arithm(dppm_vs_2, "<", dppm_vs_4).post(); // C138
+m.arithm(dppm_vs_1, "<", dppm_vs_5).post(); // C139
+m.arithm(dppm_vs_2, "<", dppm_vs_5).post(); // C140
+m.arithm(dppm_vs_1, "<", dppm_vs_6).post(); // C141
+m.arithm(dppm_vs_2, "<", dppm_vs_6).post(); // C142
+m.arithm(dppm_vs_3, "<", dppm_vs_7).post(); // C143
+m.arithm(dppm_vs_4, "<", dppm_vs_7).post(); // C144
+m.arithm(dppm_vs_5, "<", dppm_vs_7).post(); // C145
+m.arithm(dppm_vs_6, "<", dppm_vs_7).post(); // C146
+m.arithm(dppm_vs_3, "<", dppm_vs_8).post(); // C147
+m.arithm(dppm_vs_4, "<", dppm_vs_8).post(); // C148
+m.arithm(dppm_vs_5, "<", dppm_vs_8).post(); // C149
+m.arithm(dppm_vs_6, "<", dppm_vs_8).post(); // C150
+m.arithm(dppm_vs_3, "<", dppm_vs_9).post(); // C151
+m.arithm(dppm_vs_4, "<", dppm_vs_9).post(); // C152
+m.arithm(dppm_vs_5, "<", dppm_vs_9).post(); // C153
+m.arithm(dppm_vs_6, "<", dppm_vs_9).post(); // C154
+m.arithm(dppm_vs_7, "<", dppm_vs_10).post(); // C155
+m.arithm(dppm_vs_8, "<", dppm_vs_10).post(); // C156
+m.arithm(dppm_vs_9, "<", dppm_vs_10).post(); // C157
+m.arithm(dppm_vs_10, "<", dppm_vs_11).post(); // C158
+
+IntVar dppm_vmakespan = m.intVar("dppm_vmakespan", 0, 11);
+m.max(dppm_vmakespan, vs_array).post();  // C159
+dppm_vmakespan.le(5).post(); // C160
+
+m;
