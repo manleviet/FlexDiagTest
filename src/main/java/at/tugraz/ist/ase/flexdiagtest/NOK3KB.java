@@ -45,99 +45,123 @@ public class NOK3KB extends KB {
         domainList.add(Domain.builder()
                 .name("dppm_vm_0")
                 .values(List.of("0"))
+                .chocoValues(List.of(0))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_1")
                 .values(List.of("1", "2", "3", "4"))
+                .chocoValues(List.of(1, 2, 3, 4))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_2")
                 .values(List.of("1", "2", "3", "4"))
+                .chocoValues(List.of(1, 2, 3, 4))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_3")
                 .values(List.of("5", "6"))
+                .chocoValues(List.of(5, 6))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_4")
                 .values(List.of("5", "6"))
+                .chocoValues(List.of(5, 6))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_5")
                 .values(List.of("7", "8", "9", "10", "11", "12", "13"))
+                .chocoValues(List.of(7, 8, 9, 10, 11, 12, 13))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_6")
                 .values(List.of("7", "8", "9", "10", "11", "12", "13"))
+                .chocoValues(List.of(7, 8, 9, 10, 11, 12, 13))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_7")
                 .values(List.of("14"))
+                .chocoValues(List.of(14))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_8")
                 .values(List.of("15", "16", "17", "18", "19", "20"))
+                .chocoValues(List.of(15, 16, 17, 18, 19, 20))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_9")
                 .values(List.of("21", "22"))
+                .chocoValues(List.of(21, 22))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_10")
                 .values(List.of("23"))
+                .chocoValues(List.of(23))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_11")
                 .values(List.of("24"))
+                .chocoValues(List.of(24))
                 .build());
 
         domainList.add(Domain.builder()
                 .name("dppm_vs_0")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_1")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_2")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_3")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_4")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_5")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_6")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_7")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_8")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_9")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_10")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_11")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build());
 
         LoggerUtils.outdent();
@@ -167,6 +191,7 @@ public class NOK3KB extends KB {
         Domain d = Domain.builder()
                 .name("dppm_vmakespan")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
                 .build();
         domainList.add(d);
         IntVar intVar = this.modelKB.intVar("dppm_vmakespan", d.getIntValues());
@@ -1394,7 +1419,7 @@ public class NOK3KB extends KB {
 
         // Constraint 160 - dppm_vmakespan.le(5).post();
         startIdx = modelKB.getNbCstrs();
-        modelKB.arithm(((IntVariable)variableList.get(24)).getChocoVar(), ">=", 5).post();
+        modelKB.arithm(((IntVariable)variableList.get(24)).getChocoVar(), "<=", 5).post();
 
         addConstraint("Constraint 160 - dppm_vmakespan.le(5).post();",
                 startIdx);

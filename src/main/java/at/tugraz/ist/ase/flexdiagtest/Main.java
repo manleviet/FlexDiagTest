@@ -35,9 +35,9 @@ public class Main {
         // uncomment one of the following KBs to choose a KB to use
 //        KB kb = new NOK1_1KB(); // initialize the knowledge base model_1_nok_1
 //        KB kb = new NOK1_2KB(); // initialize the knowledge base model_1_nok_2
-        KB kb = new NOK1_3KB(); // initialize the knowledge base model_1_nok_3
+//        KB kb = new NOK1_3KB(); // initialize the knowledge base model_1_nok_3
 //        KB kb = new NOK2KB(); // initialize the knowledge base model_2_nok
-//        KB kb = new NOK3KB(); // initialize the knowledge base model_2_nok
+        KB kb = new NOK3KB(); // initialize the knowledge base model_2_nok
 
         // print the KB
         // uncomment to print the KB's constraints
@@ -76,7 +76,7 @@ public class Main {
             System.out.println(firstConflictSet);
             System.out.println("Time for QuickXPlain: " + ((double) getTimer(TIMER_QUICKXPLAIN).total() / 1_000_000_000.0));
             System.out.println("Time for solver: " + ((double) getTimer(TIMER_SOLVER).total() / 1_000_000_000.0));
-//            printPerformance();
+            printPerformance();
 
             // HSDAG + QUICKXPLAIN
             QuickXPlainParameters qxParams = new QuickXPlainParameters(C, B);
@@ -96,7 +96,7 @@ public class Main {
                 System.out.println("=========================================");
                 System.out.println("Conflict sets found by QuickXPlain:");
                 System.out.println(convertToStringWithMessage(allConflictSets, "Conflict set"));
-//                printPerformance();
+                printPerformance();
 
                 for (int i = 0; i < allConflictSets.size(); i++) {
                     System.out.println("Time for conflict " + (i + 1) + ": " + ((double) getTimer(TIMER_CONFLICT).getTimings().get(i) / 1_000_000_000.0));
@@ -120,7 +120,7 @@ public class Main {
             System.out.println(diagnosis);
             System.out.println("Time for FlexDiag: " + ((double) getTimer(TIMER_FLEXDIAG).total() / 1_000_000_000.0));
             System.out.println("Time for solver: " + ((double) getTimer(TIMER_SOLVER).total() / 1_000_000_000.0));
-//            printPerformance();
+            printPerformance();
 
             // HSDAG + FLEXDIAG - all diagnoses
             // create parameters for the HSDAG algorithm
@@ -141,7 +141,7 @@ public class Main {
                 System.out.println("=========================================");
                 System.out.println("Diagnoses found by FlexDiag:");
                 System.out.println(convertToStringWithMessage(allDiagnoses, "Diagnosis"));
-//                printPerformance();
+                printPerformance();
 
                 for (int i = 0; i < allDiagnoses.size(); i++) {
                     System.out.println("Time for diagnosis " + (i + 1) + ": " + ((double) getTimer(TIMER_CONFLICT).getTimings().get(i) / 1_000_000_000.0));
@@ -152,48 +152,48 @@ public class Main {
 
         // FASTDIAG
         // run the fastDiag to find diagnoses
-        FastDiagV2 fastDiag = new FastDiagV2(checker);
-
-        CAEvaluator.reset();
-        Set<Constraint> firstDiag = fastDiag.findDiagnosis(C, AC);
-
-        if (firstDiag.isEmpty()) {
-            System.out.println("=========================================");
-            System.out.println("No diagnosis found");
-        } else {
-            System.out.println("=========================================");
-            System.out.println("One diagnosis found by FastDiag:");
-            System.out.println(firstDiag);
-            System.out.println("Time for FastDiag: " + ((double) getTimer(TIMER_FASTDIAGV2).total() / 1_000_000_000.0));
-            System.out.println("Time for solver: " + ((double) getTimer(TIMER_SOLVER).total() / 1_000_000_000.0));
+//        FastDiagV2 fastDiag = new FastDiagV2(checker);
+//
+//        CAEvaluator.reset();
+//        Set<Constraint> firstDiag = fastDiag.findDiagnosis(C, AC);
+//
+//        if (firstDiag.isEmpty()) {
+//            System.out.println("=========================================");
+//            System.out.println("No diagnosis found");
+//        } else {
+//            System.out.println("=========================================");
+//            System.out.println("One diagnosis found by FastDiag:");
+//            System.out.println(firstDiag);
+//            System.out.println("Time for FastDiag: " + ((double) getTimer(TIMER_FASTDIAGV2).total() / 1_000_000_000.0));
+//            System.out.println("Time for solver: " + ((double) getTimer(TIMER_SOLVER).total() / 1_000_000_000.0));
 //            printPerformance();
-
-            // HSDAG + FASTDIAG - all diagnoses
-            // create parameters for the HSDAG algorithm
-            FastDiagV2Parameters fastdiag_parameters = new FastDiagV2Parameters(C, AC);
-            // create a labeler, which is used to label the nodes of the HSDAG
-            FastDiagV2Labeler fastDiagLabeler = new FastDiagV2Labeler(checker, fastdiag_parameters);
-
-            HSDAG hsdag = new HSDAG(fastDiagLabeler, checker); // create an HSDAG object
-
-            // reset the timers, the counters
-            CAEvaluator.reset();
-            hsdag.construct(); // construct the HSDAG
-
-            List<Set<Constraint>> allConflictSets = hsdag.getDiagnoses(); // get all conflict sets
-            List<Set<Constraint>> allDiagnoses = hsdag.getConflicts(); // get all diagnoses
-
-            if (!allDiagnoses.isEmpty()) {
-                System.out.println("=========================================");
-                System.out.println("Diagnoses found by FastDiag:");
-                System.out.println(convertToStringWithMessage(allDiagnoses, "Diagnosis"));
+//
+//            // HSDAG + FASTDIAG - all diagnoses
+//            // create parameters for the HSDAG algorithm
+//            FastDiagV2Parameters fastdiag_parameters = new FastDiagV2Parameters(C, AC);
+//            // create a labeler, which is used to label the nodes of the HSDAG
+//            FastDiagV2Labeler fastDiagLabeler = new FastDiagV2Labeler(checker, fastdiag_parameters);
+//
+//            HSDAG hsdag = new HSDAG(fastDiagLabeler, checker); // create an HSDAG object
+//
+//            // reset the timers, the counters
+//            CAEvaluator.reset();
+//            hsdag.construct(); // construct the HSDAG
+//
+//            List<Set<Constraint>> allConflictSets = hsdag.getDiagnoses(); // get all conflict sets
+//            List<Set<Constraint>> allDiagnoses = hsdag.getConflicts(); // get all diagnoses
+//
+//            if (!allDiagnoses.isEmpty()) {
+//                System.out.println("=========================================");
+//                System.out.println("Diagnoses found by FastDiag:");
+//                System.out.println(convertToStringWithMessage(allDiagnoses, "Diagnosis"));
 //                printPerformance();
-
-                for (int i = 0; i < allDiagnoses.size(); i++) {
-                    System.out.println("Time for diagnosis " + (i+1) + ": " + ((double) getTimer(TIMER_CONFLICT).getTimings().get(i) / 1_000_000_000.0));
-                    System.out.println("Time for solver: " + ((double) getTimer(TIMER_SOLVER).getTimings().get(i) / 1_000_000_000.0));
-                }
-            }
-        }
+//
+//                for (int i = 0; i < allDiagnoses.size(); i++) {
+//                    System.out.println("Time for diagnosis " + (i+1) + ": " + ((double) getTimer(TIMER_CONFLICT).getTimings().get(i) / 1_000_000_000.0));
+//                    System.out.println("Time for solver: " + ((double) getTimer(TIMER_SOLVER).getTimings().get(i) / 1_000_000_000.0));
+//                }
+//            }
+//        }
     }
 }

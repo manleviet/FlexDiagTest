@@ -1,0 +1,680 @@
+=========================================
+First conflict set found by QuickXplain:
+[c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();, c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();, c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();, c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);, c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);, c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);, c15 - dppm_vmakespan.le(5).post();]
+Time for QuickXPlain: 0.038145292
+Time for solver: 0.04329108
+The number of left branch calls: 11
+The number of right branch calls: 11
+The number of post constraints: 2112
+The number of Choco Solver calls: 20
+The number of INconsistent: 6
+The number of unpost constraints: 2112
+The number of QX calls: 23
+The number of consistent: 14
+The number of split set: 11
+The number of union: 34
+The size of Consistency checks: 2112
+The number of Consistency checks: 19
+
+Timer for solver: 0.04329108
+Timer for QX: 0.038145292
+
+=========================================
+Conflict sets found by QuickXPlain:
+Conflict set 1:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 2:
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+Conflict set 3:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 4:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 5:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 6:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 7:
+c15 - dppm_vmakespan.le(5).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 8:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 9:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 10:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 11:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 12:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 13:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 14:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+Conflict set 15:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 16:
+c15 - dppm_vmakespan.le(5).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 17:
+c15 - dppm_vmakespan.le(5).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 18:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 19:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+Conflict set 20:
+c15 - dppm_vmakespan.le(5).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 21:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 22:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 23:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+Conflict set 24:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 25:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 26:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 27:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+Conflict set 28:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 29:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 30:
+c15 - dppm_vmakespan.le(5).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 31:
+c15 - dppm_vmakespan.le(5).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+Conflict set 32:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+Conflict set 33:
+c15 - dppm_vmakespan.le(5).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Conflict set 34:
+c15 - dppm_vmakespan.le(5).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 35:
+c15 - dppm_vmakespan.le(5).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 36:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 37:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 38:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+Conflict set 39:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 40:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 41:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 42:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 43:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 44:
+c15 - dppm_vmakespan.le(5).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+Conflict set 45:
+c15 - dppm_vmakespan.le(5).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 46:
+c15 - dppm_vmakespan.le(5).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+Conflict set 47:
+c15 - dppm_vmakespan.le(5).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 48:
+c15 - dppm_vmakespan.le(5).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 49:
+c15 - dppm_vmakespan.le(5).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 50:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 51:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 52:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 53:
+c15 - dppm_vmakespan.le(5).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+Conflict set 54:
+c15 - dppm_vmakespan.le(5).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 55:
+c15 - dppm_vmakespan.le(5).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 56:
+c15 - dppm_vmakespan.le(5).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+Conflict set 57:
+c15 - dppm_vmakespan.le(5).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+The number of left branch calls: 483
+The number of right branch calls: 483
+The number of post constraints: 91206
+The number of Choco Solver calls: 929
+The number of 3.i closed nodes: 388
+The number of reused conflicts: 37
+The number of INconsistent: 203
+The number of unpost constraints: 91206
+The number of constructed nodes: 494
+The number of QX calls: 1023
+The number of consistent: 726
+The number of split set: 483
+The number of union: 1518
+The size of Consistency checks: 91206
+The number of reused nodes: 130
+The number of Consistency checks: 860
+
+Timer for conflict: 0.325301417
+Timer for HS construction session: 1.192755916
+Timer for solver: 0.267815096
+Timer for diagnosis: 0.868539166
+Timer for QX: 0.287027747
+
+=========================================
+One diagnosis found by FlexDiag:
+[c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();, c15 - dppm_vmakespan.le(5).post();]
+Time for FlexDiag: 0.0018515
+Time for solver: 0.001388041
+The number of left branch calls: 6
+The number of right branch calls: 6
+The number of post constraints: 920
+The number of Choco Solver calls: 9
+The number of different: 13
+The number of INconsistent: 3
+The number of unpost constraints: 920
+The number of consistent: 6
+The number of split set: 6
+The number of union: 6
+The size of Consistency checks: 920
+The number of FlexDiag calls: 13
+The number of Consistency checks: 7
+
+Timer for solver: 0.001388041
+Timer for FlexDiag: 0.0018515
+
+=========================================
+Diagnoses found by FlexDiag:
+Diagnosis 1:
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c15 - dppm_vmakespan.le(5).post();
+Diagnosis 2:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c15 - dppm_vmakespan.le(5).post();
+Diagnosis 3:
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+Diagnosis 4:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+Diagnosis 5:
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+Diagnosis 6:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+Diagnosis 7:
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+Diagnosis 8:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+Diagnosis 9:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+Diagnosis 10:
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+Diagnosis 11:
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Diagnosis 12:
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+The number of left branch calls: 73
+The number of right branch calls: 73
+The number of post constraints: 25943
+The number of Choco Solver calls: 250
+The number of 3.i closed nodes: 24
+The number of different: 215
+The number of reused conflicts: 38
+The number of INconsistent: 185
+The number of unpost constraints: 25943
+The number of constructed nodes: 131
+The number of consistent: 65
+The number of split set: 73
+The number of union: 73
+The size of Consistency checks: 25943
+The number of reused nodes: 20
+The number of FlexDiag calls: 158
+The number of Consistency checks: 112
+
+Timer for conflict: 0.025964377
+Timer for HS construction session: 0.905089375
+Timer for solver: 0.071388084
+Timer for diagnosis: 0.897646789
+Timer for FlexDiag: 0.021904333
+
+=========================================
+One diagnosis found by FastDiag:
+[c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();, c15 - dppm_vmakespan.le(5).post();]
+Time for FastDiag: 0.001241084
+Time for solver: 0.001107501
+The number of left branch calls: 6
+The number of FD V2 calls: 13
+The number of right branch calls: 6
+The number of post constraints: 920
+The number of Choco Solver calls: 9
+The number of different: 13
+The number of INconsistent: 3
+The number of unpost constraints: 920
+The number of consistent: 6
+The number of split set: 6
+The number of union: 6
+The size of Consistency checks: 920
+The number of Consistency checks: 7
+
+Timer for solver: 0.001107501
+Timer for FD V2: 0.001241084
+
+=========================================
+Diagnoses found by FastDiag:
+Diagnosis 1:
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c15 - dppm_vmakespan.le(5).post();
+Diagnosis 2:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c15 - dppm_vmakespan.le(5).post();
+Diagnosis 3:
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+Diagnosis 4:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c10 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+Diagnosis 5:
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+Diagnosis 6:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c9 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+c14 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+Diagnosis 7:
+c8 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c13 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+Diagnosis 8:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+Diagnosis 9:
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+Diagnosis 10:
+c7 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+c12 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+Diagnosis 11:
+c1 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+c2 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+c3 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+c4 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+c5 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+Diagnosis 12:
+c6 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+c11 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+The number of left branch calls: 73
+The number of FD V2 calls: 158
+The number of right branch calls: 73
+The number of post constraints: 25943
+The number of Choco Solver calls: 250
+The number of 3.i closed nodes: 24
+The number of different: 215
+The number of reused conflicts: 38
+The number of INconsistent: 185
+The number of unpost constraints: 25943
+The number of constructed nodes: 131
+The number of consistent: 65
+The number of split set: 73
+The number of union: 73
+The size of Consistency checks: 25943
+The number of reused nodes: 20
+The number of Consistency checks: 112
+
+Timer for conflict: 0.023853543
+Timer for HS construction session: 0.906993625
+Timer for solver: 0.068336538
+Timer for FD V2: 0.020063917
+Timer for diagnosis: 0.899493082

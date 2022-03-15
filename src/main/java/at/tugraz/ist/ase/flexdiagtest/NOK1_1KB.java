@@ -44,59 +44,73 @@ public class NOK1_1KB extends KB {
 
         domainList.add(Domain.builder()
                 .name("dppm_vm_0")
-                .values(List.of("0", "1"))
+                .values(List.of("0", "1", "2", "3"))
+                .chocoValues(List.of(0, 1, 2, 3))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_1")
-                .values(List.of("2", "3"))
+                .values(List.of("0", "1", "2", "3"))
+                .chocoValues(List.of(0, 1, 2, 3))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_2")
-                .values(List.of("2", "3"))
+                .values(List.of("0", "1", "2", "3"))
+                .chocoValues(List.of(0, 1, 2, 3))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_3")
-                .values(List.of("2", "3"))
+                .values(List.of("0", "1", "2", "3"))
+                .chocoValues(List.of(0, 1, 2, 3))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_4")
-                .values(List.of("2", "3"))
+                .values(List.of("0", "1", "2", "3"))
+                .chocoValues(List.of(0, 1, 2, 3))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_5")
-                .values(List.of("2"))
+                .values(List.of("0", "1", "2", "3"))
+                .chocoValues(List.of(0, 1, 2, 3))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vm_6")
-                .values(List.of("0", "1"))
+                .values(List.of("0", "1", "2", "3"))
+                .chocoValues(List.of(0, 1, 2, 3))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_0")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_1")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_2")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_3")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_4")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_5")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6))
                 .build());
         domainList.add(Domain.builder()
                 .name("dppm_vs_6")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6))
                 .build());
 
         LoggerUtils.outdent();
@@ -108,7 +122,7 @@ public class NOK1_1KB extends KB {
         LoggerUtils.indent();
 
         List<String> varNames = List.of("dppm_vm_0", "dppm_vm_1", "dppm_vm_2", "dppm_vm_3", "dppm_vm_4", "dppm_vm_5", "dppm_vm_6",
-                                        "dppm_vs_0", "dppm_vs_1", "dppm_vs_2", "dppm_vs_3", "dppm_vs_4", "dppm_vs_5", "dppm_vs_6");
+                "dppm_vs_0", "dppm_vs_1", "dppm_vs_2", "dppm_vs_3", "dppm_vs_4", "dppm_vs_5", "dppm_vs_6");
 
         for (int i = 0; i < varNames.size(); i++) {
             String varName = varNames.get(i);
@@ -163,6 +177,7 @@ public class NOK1_1KB extends KB {
         d = Domain.builder()
                 .name("dppm_vmakespan")
                 .values(List.of("0", "1", "2", "3", "4", "5", "6"))
+                .chocoValues(List.of(0, 1, 2, 3, 4, 5, 6))
                 .build();
         domainList.add(d);
         IntVar intVar = this.modelKB.intVar("dppm_vmakespan", d.getIntValues());
@@ -180,6 +195,7 @@ public class NOK1_1KB extends KB {
         log.trace("{}Defining constraints >>>", LoggerUtils.tab);
         LoggerUtils.indent();
 
+        constraintGroup0();
         constraintGroup1();
         constraintGroup2();
         constraintGroup3();
@@ -189,414 +205,439 @@ public class NOK1_1KB extends KB {
         log.debug("{}<<< Created constraints", LoggerUtils.tab);
     }
 
-    private void constraintGroup1() {
+    private void constraintGroup0() {
         int startIdx = 0;
 
-        // Constraint 1 - dppm_vm_0.eq(dppm_vm_1).imp(dppm_vs_0.ne(dppm_vs_1)).post();
+        // C0 - constraint vm[0] in {0,1};
+        modelKB.member(((IntVariable)variableList.get(0)).getChocoVar(), new int[]{0, 1}).post();
+
+        addConstraint("C0 - constraint vm[0] in {0,1};", startIdx);
+
+        // C1 - constraint vm[1] in {2,3};
+        startIdx = modelKB.getNbCstrs();
+        modelKB.member(((IntVariable)variableList.get(1)).getChocoVar(), new int[]{2, 3}).post();
+
+        addConstraint("C1 - constraint vm[1] in {2,3};", startIdx);
+
+        // constraint vm[2] in {2,3};
+        startIdx = modelKB.getNbCstrs();
+        modelKB.member(((IntVariable)variableList.get(2)).getChocoVar(), new int[]{2, 3}).post();
+
+        addConstraint("C2 - constraint vm[2] in {2,3};", startIdx);
+
+        // constraint vm[3] in {2,3};
+        startIdx = modelKB.getNbCstrs();
+        modelKB.member(((IntVariable)variableList.get(3)).getChocoVar(), new int[]{2, 3}).post();
+
+        addConstraint("C3 - constraint vm[3] in {2,3};", startIdx);
+
+        // constraint vm[4] in {2,3};
+        startIdx = modelKB.getNbCstrs();
+        modelKB.member(((IntVariable)variableList.get(4)).getChocoVar(), new int[]{2, 3}).post();
+
+        addConstraint("C4 - constraint vm[4] in {2,3};", startIdx);
+
+        // constraint vm[5] in {2};
+        startIdx = modelKB.getNbCstrs();
+//        modelKB.member(((IntVariable)variableList.get(5)).getChocoVar(), new int[]{2}).post();
+        modelKB.arithm(((IntVariable)variableList.get(5)).getChocoVar(), "=", 2).post();
+
+        addConstraint("C5 - constraint vm[5] in {2};", startIdx);
+
+        // constraint vm[6] in {0,1};
+        startIdx = modelKB.getNbCstrs();
+        modelKB.member(((IntVariable)variableList.get(6)).getChocoVar(), new int[]{0, 1}).post();
+
+        addConstraint("C6 - constraint vm[6] in {0,1};", startIdx);
+    }
+
+    private void constraintGroup1() {
+        // C7 - dppm_vm_0.eq(dppm_vm_1).imp(dppm_vs_0.ne(dppm_vs_1)).post();
+        int startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(0)).getChocoVar(),"=", ((IntVariable)variableList.get(1)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(8)).getChocoVar()));
 
-        addConstraint("Constraint 1 - dppm_vm_0.eq(dppm_vm_1).imp(dppm_vs_0.ne(dppm_vs_1)).post();",
+        addConstraint("C7 - dppm_vm_0.eq(dppm_vm_1).imp(dppm_vs_0.ne(dppm_vs_1)).post();",
                 startIdx);
 
-        // Constraint 2 - dppm_vm_0.eq(dppm_vm_2).imp(dppm_vs_0.ne(dppm_vs_2)).post();
+        // C8 - dppm_vm_0.eq(dppm_vm_2).imp(dppm_vs_0.ne(dppm_vs_2)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(0)).getChocoVar(),"=", ((IntVariable)variableList.get(2)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(9)).getChocoVar()));
 
-        addConstraint("Constraint 2 - dppm_vm_0.eq(dppm_vm_2).imp(dppm_vs_0.ne(dppm_vs_2)).post();",
+        addConstraint("C8 - dppm_vm_0.eq(dppm_vm_2).imp(dppm_vs_0.ne(dppm_vs_2)).post();",
                 startIdx);
 
-        // Constraint 3 - dppm_vm_0.eq(dppm_vm_3).imp(dppm_vs_0.ne(dppm_vs_3)).post();
+        // C9 - dppm_vm_0.eq(dppm_vm_3).imp(dppm_vs_0.ne(dppm_vs_3)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(0)).getChocoVar(),"=", ((IntVariable)variableList.get(3)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(10)).getChocoVar()));
 
-        addConstraint("Constraint 3 - dppm_vm_0.eq(dppm_vm_3).imp(dppm_vs_0.ne(dppm_vs_3)).post();",
+        addConstraint("C9 - dppm_vm_0.eq(dppm_vm_3).imp(dppm_vs_0.ne(dppm_vs_3)).post();",
                 startIdx);
 
-        // Constraint 4 - dppm_vm_0.eq(dppm_vm_4).imp(dppm_vs_0.ne(dppm_vs_4)).post();
+        // C10 - dppm_vm_0.eq(dppm_vm_4).imp(dppm_vs_0.ne(dppm_vs_4)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(0)).getChocoVar(),"=", ((IntVariable)variableList.get(4)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(11)).getChocoVar()));
 
-        addConstraint("Constraint 4 - dppm_vm_0.eq(dppm_vm_4).imp(dppm_vs_0.ne(dppm_vs_4)).post();",
+        addConstraint("C10 - dppm_vm_0.eq(dppm_vm_4).imp(dppm_vs_0.ne(dppm_vs_4)).post();",
                 startIdx);
 
-        // Constraint 5 - dppm_vm_0.eq(dppm_vm_5).imp(dppm_vs_0.ne(dppm_vs_5)).post();
+        // C11 - dppm_vm_0.eq(dppm_vm_5).imp(dppm_vs_0.ne(dppm_vs_5)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(0)).getChocoVar(),"=", ((IntVariable)variableList.get(5)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()));
 
-        addConstraint("Constraint 5 - dppm_vm_0.eq(dppm_vm_5).imp(dppm_vs_0.ne(dppm_vs_5)).post();",
+        addConstraint("C11 - dppm_vm_0.eq(dppm_vm_5).imp(dppm_vs_0.ne(dppm_vs_5)).post();",
                 startIdx);
 
-        // Constraint 6 - dppm_vm_0.eq(dppm_vm_6).imp(dppm_vs_0.ne(dppm_vs_6)).post();
+        // C12 - dppm_vm_0.eq(dppm_vm_6).imp(dppm_vs_0.ne(dppm_vs_6)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(0)).getChocoVar(),"=", ((IntVariable)variableList.get(6)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(13)).getChocoVar()));
 
-        addConstraint("Constraint 6 - dppm_vm_0.eq(dppm_vm_6).imp(dppm_vs_0.ne(dppm_vs_6)).post();",
+        addConstraint("C12 - dppm_vm_0.eq(dppm_vm_6).imp(dppm_vs_0.ne(dppm_vs_6)).post();",
                 startIdx);
 
-        // Constraint 7 - dppm_vm_1.eq(dppm_vm_2).imp(dppm_vs_1.ne(dppm_vs_2)).post();
+        // C13 - dppm_vm_1.eq(dppm_vm_2).imp(dppm_vs_1.ne(dppm_vs_2)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(1)).getChocoVar(),"=", ((IntVariable)variableList.get(2)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"!=", ((IntVariable)variableList.get(9)).getChocoVar()));
 
-        addConstraint("Constraint 7 - dppm_vm_1.eq(dppm_vm_2).imp(dppm_vs_1.ne(dppm_vs_2)).post();",
+        addConstraint("C13 - dppm_vm_1.eq(dppm_vm_2).imp(dppm_vs_1.ne(dppm_vs_2)).post();",
                 startIdx);
 
-        // Constraint 8 - dppm_vm_1.eq(dppm_vm_3).imp(dppm_vs_1.ne(dppm_vs_3)).post();
+        // C14 - dppm_vm_1.eq(dppm_vm_3).imp(dppm_vs_1.ne(dppm_vs_3)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(1)).getChocoVar(),"=", ((IntVariable)variableList.get(3)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"!=", ((IntVariable)variableList.get(10)).getChocoVar()));
 
-        addConstraint("Constraint 8 - dppm_vm_1.eq(dppm_vm_3).imp(dppm_vs_1.ne(dppm_vs_3)).post();",
+        addConstraint("C14 - dppm_vm_1.eq(dppm_vm_3).imp(dppm_vs_1.ne(dppm_vs_3)).post();",
                 startIdx);
 
-        // Constraint 9 - dppm_vm_1.eq(dppm_vm_4).imp(dppm_vs_1.ne(dppm_vs_4)).post();
+        // C15 - dppm_vm_1.eq(dppm_vm_4).imp(dppm_vs_1.ne(dppm_vs_4)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(1)).getChocoVar(),"=", ((IntVariable)variableList.get(4)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"!=", ((IntVariable)variableList.get(11)).getChocoVar()));
 
-        addConstraint("Constraint 9 - dppm_vm_1.eq(dppm_vm_4).imp(dppm_vs_1.ne(dppm_vs_4)).post();",
+        addConstraint("C15 - dppm_vm_1.eq(dppm_vm_4).imp(dppm_vs_1.ne(dppm_vs_4)).post();",
                 startIdx);
 
-        // Constraint 10 - dppm_vm_1.eq(dppm_vm_5).imp(dppm_vs_1.ne(dppm_vs_5)).post();
+        // C16 - dppm_vm_1.eq(dppm_vm_5).imp(dppm_vs_1.ne(dppm_vs_5)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(1)).getChocoVar(),"=", ((IntVariable)variableList.get(5)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()));
 
-        addConstraint("Constraint 10 - dppm_vm_1.eq(dppm_vm_5).imp(dppm_vs_1.ne(dppm_vs_5)).post();",
+        addConstraint("C16 - dppm_vm_1.eq(dppm_vm_5).imp(dppm_vs_1.ne(dppm_vs_5)).post();",
                 startIdx);
 
-        // Constraint 11 - dppm_vm_1.eq(dppm_vm_6).imp(dppm_vs_1.ne(dppm_vs_6)).post();
+        // C17 - dppm_vm_1.eq(dppm_vm_6).imp(dppm_vs_1.ne(dppm_vs_6)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(1)).getChocoVar(),"=", ((IntVariable)variableList.get(6)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"!=", ((IntVariable)variableList.get(13)).getChocoVar()));
 
-        addConstraint("Constraint 11 - dppm_vm_1.eq(dppm_vm_6).imp(dppm_vs_1.ne(dppm_vs_6)).post();",
+        addConstraint("C17 - dppm_vm_1.eq(dppm_vm_6).imp(dppm_vs_1.ne(dppm_vs_6)).post();",
                 startIdx);
 
-        // Constraint 12 - dppm_vm_2.eq(dppm_vm_3).imp(dppm_vs_2.ne(dppm_vs_3)).post();
+        // C18 - dppm_vm_2.eq(dppm_vm_3).imp(dppm_vs_2.ne(dppm_vs_3)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(2)).getChocoVar(),"=", ((IntVariable)variableList.get(3)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"!=", ((IntVariable)variableList.get(10)).getChocoVar()));
 
-        addConstraint("Constraint 12 - dppm_vm_2.eq(dppm_vm_3).imp(dppm_vs_2.ne(dppm_vs_3)).post();",
+        addConstraint("C18 - dppm_vm_2.eq(dppm_vm_3).imp(dppm_vs_2.ne(dppm_vs_3)).post();",
                 startIdx);
 
-        // Constraint 13 - dppm_vm_2.eq(dppm_vm_4).imp(dppm_vs_2.ne(dppm_vs_4)).post();
+        // C19 - dppm_vm_2.eq(dppm_vm_4).imp(dppm_vs_2.ne(dppm_vs_4)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(2)).getChocoVar(),"=", ((IntVariable)variableList.get(4)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"!=", ((IntVariable)variableList.get(11)).getChocoVar()));
 
-        addConstraint("Constraint 13 - dppm_vm_2.eq(dppm_vm_4).imp(dppm_vs_2.ne(dppm_vs_4)).post();",
+        addConstraint("C19 - dppm_vm_2.eq(dppm_vm_4).imp(dppm_vs_2.ne(dppm_vs_4)).post();",
                 startIdx);
 
-        // Constraint 14 - dppm_vm_2.eq(dppm_vm_5).imp(dppm_vs_2.ne(dppm_vs_5)).post();
+        // C20 - dppm_vm_2.eq(dppm_vm_5).imp(dppm_vs_2.ne(dppm_vs_5)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(2)).getChocoVar(),"=", ((IntVariable)variableList.get(5)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()));
 
-        addConstraint("Constraint 14 - dppm_vm_2.eq(dppm_vm_5).imp(dppm_vs_2.ne(dppm_vs_5)).post();",
+        addConstraint("C20 - dppm_vm_2.eq(dppm_vm_5).imp(dppm_vs_2.ne(dppm_vs_5)).post();",
                 startIdx);
 
-        // Constraint 15 - dppm_vm_2.eq(dppm_vm_6).imp(dppm_vs_2.ne(dppm_vs_6)).post();
+        // C21 - dppm_vm_2.eq(dppm_vm_6).imp(dppm_vs_2.ne(dppm_vs_6)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(2)).getChocoVar(),"=", ((IntVariable)variableList.get(6)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"!=", ((IntVariable)variableList.get(13)).getChocoVar()));
 
-        addConstraint("Constraint 15 - dppm_vm_2.eq(dppm_vm_6).imp(dppm_vs_2.ne(dppm_vs_6)).post();",
+        addConstraint("C21 - dppm_vm_2.eq(dppm_vm_6).imp(dppm_vs_2.ne(dppm_vs_6)).post();",
                 startIdx);
 
-        // Constraint 16 - dppm_vm_3.eq(dppm_vm_4).imp(dppm_vs_3.ne(dppm_vs_4)).post();
+        // C22 - dppm_vm_3.eq(dppm_vm_4).imp(dppm_vs_3.ne(dppm_vs_4)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(3)).getChocoVar(),"=", ((IntVariable)variableList.get(4)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"!=", ((IntVariable)variableList.get(11)).getChocoVar()));
 
-        addConstraint("Constraint 16 - dppm_vm_3.eq(dppm_vm_4).imp(dppm_vs_3.ne(dppm_vs_4)).post();",
+        addConstraint("C22 - dppm_vm_3.eq(dppm_vm_4).imp(dppm_vs_3.ne(dppm_vs_4)).post();",
                 startIdx);
 
-        // Constraint 17 - dppm_vm_3.eq(dppm_vm_5).imp(dppm_vs_3.ne(dppm_vs_5)).post();
+        // C23 - dppm_vm_3.eq(dppm_vm_5).imp(dppm_vs_3.ne(dppm_vs_5)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(3)).getChocoVar(),"=", ((IntVariable)variableList.get(5)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()));
 
-        addConstraint("Constraint 17 - dppm_vm_3.eq(dppm_vm_5).imp(dppm_vs_3.ne(dppm_vs_5)).post();",
+        addConstraint("C23 - dppm_vm_3.eq(dppm_vm_5).imp(dppm_vs_3.ne(dppm_vs_5)).post();",
                 startIdx);
 
-        // Constraint 18 - dppm_vm_3.eq(dppm_vm_6).imp(dppm_vs_3.ne(dppm_vs_6)).post();
+        // C24 - dppm_vm_3.eq(dppm_vm_6).imp(dppm_vs_3.ne(dppm_vs_6)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(3)).getChocoVar(),"=", ((IntVariable)variableList.get(6)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"!=", ((IntVariable)variableList.get(13)).getChocoVar()));
 
-        addConstraint("Constraint 18 - dppm_vm_3.eq(dppm_vm_6).imp(dppm_vs_3.ne(dppm_vs_6)).post();",
+        addConstraint("C24 - dppm_vm_3.eq(dppm_vm_6).imp(dppm_vs_3.ne(dppm_vs_6)).post();",
                 startIdx);
 
-        // Constraint 19 - dppm_vm_4.eq(dppm_vm_5).imp(dppm_vs_4.ne(dppm_vs_5)).post();
+        // C25 - dppm_vm_4.eq(dppm_vm_5).imp(dppm_vs_4.ne(dppm_vs_5)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(4)).getChocoVar(),"=", ((IntVariable)variableList.get(5)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(11)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()));
 
-        addConstraint("Constraint 19 - dppm_vm_4.eq(dppm_vm_5).imp(dppm_vs_4.ne(dppm_vs_5)).post();",
+        addConstraint("C25 - dppm_vm_4.eq(dppm_vm_5).imp(dppm_vs_4.ne(dppm_vs_5)).post();",
                 startIdx);
 
-        // Constraint 20 - dppm_vm_4.eq(dppm_vm_6).imp(dppm_vs_4.ne(dppm_vs_6)).post();
+        // C26 - dppm_vm_4.eq(dppm_vm_6).imp(dppm_vs_4.ne(dppm_vs_6)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(4)).getChocoVar(),"=", ((IntVariable)variableList.get(6)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(11)).getChocoVar(),"!=", ((IntVariable)variableList.get(13)).getChocoVar()));
 
-        addConstraint("Constraint 20 - dppm_vm_4.eq(dppm_vm_6).imp(dppm_vs_4.ne(dppm_vs_6)).post();",
+        addConstraint("C26 - dppm_vm_4.eq(dppm_vm_6).imp(dppm_vs_4.ne(dppm_vs_6)).post();",
                 startIdx);
 
-        // Constraint 21 - dppm_vm_5.eq(dppm_vm_6).imp(dppm_vs_5.ne(dppm_vs_6)).post();
+        // C27 - dppm_vm_5.eq(dppm_vm_6).imp(dppm_vs_5.ne(dppm_vs_6)).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.ifThen(modelKB.arithm(((IntVariable)variableList.get(5)).getChocoVar(),"=", ((IntVariable)variableList.get(6)).getChocoVar()),
                 modelKB.arithm(((IntVariable)variableList.get(12)).getChocoVar(),"!=", ((IntVariable)variableList.get(13)).getChocoVar()));
 
-        addConstraint("Constraint 21 - dppm_vm_5.eq(dppm_vm_6).imp(dppm_vs_5.ne(dppm_vs_6)).post();",
+        addConstraint("C27 - dppm_vm_5.eq(dppm_vm_6).imp(dppm_vs_5.ne(dppm_vs_6)).post();",
                 startIdx);
     }
 
     private void constraintGroup2() {
         int startIdx = modelKB.getNbCstrs();
 
-        // Constraint 22 - dppm_vs_0.ne(dppm_vs_1).post();
+        // C28 - dppm_vs_0.ne(dppm_vs_1).post();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(8)).getChocoVar()).post();
 
-        addConstraint("Constraint 22 - dppm_vs_0.ne(dppm_vs_1).post();",
+        addConstraint("C28 - dppm_vs_0.ne(dppm_vs_1).post();",
                 startIdx);
 
-        // Constraint 23 - dppm_vs_0.ne(dppm_vs_2).post();
+        // C29 - dppm_vs_0.ne(dppm_vs_2).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(9)).getChocoVar()).post();
 
-        addConstraint("Constraint 23 - dppm_vs_0.ne(dppm_vs_2).post();",
+        addConstraint("C29 - dppm_vs_0.ne(dppm_vs_2).post();",
                 startIdx);
 
-        // Constraint 24 - dppm_vs_0.ne(dppm_vs_3).post();
+        // C30 - dppm_vs_0.ne(dppm_vs_3).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(10)).getChocoVar()).post();
 
-        addConstraint("Constraint 24 - dppm_vs_0.ne(dppm_vs_3).post();",
+        addConstraint("C30 - dppm_vs_0.ne(dppm_vs_3).post();",
                 startIdx);
 
-        // Constraint 25 - dppm_vs_0.ne(dppm_vs_4).post();
+        // C31 - dppm_vs_0.ne(dppm_vs_4).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(11)).getChocoVar()).post();
 
-        addConstraint("Constraint 25 - dppm_vs_0.ne(dppm_vs_4).post();",
+        addConstraint("C31 - dppm_vs_0.ne(dppm_vs_4).post();",
                 startIdx);
 
-        // Constraint 26 - dppm_vs_0.ne(dppm_vs_5).post();
+        // C32 - dppm_vs_0.ne(dppm_vs_5).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()).post();
 
-        addConstraint("Constraint 26 - dppm_vs_0.ne(dppm_vs_5).post();",
+        addConstraint("C32 - dppm_vs_0.ne(dppm_vs_5).post();",
                 startIdx);
 
-        // Constraint 27 - dppm_vs_1.ne(dppm_vs_2).post();
+        // C33 - dppm_vs_1.ne(dppm_vs_2).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"!=", ((IntVariable)variableList.get(9)).getChocoVar()).post();
 
-        addConstraint("Constraint 27 - dppm_vs_1.ne(dppm_vs_2).post();",
+        addConstraint("C33 - dppm_vs_1.ne(dppm_vs_2).post();",
                 startIdx);
 
-        // Constraint 28 - dppm_vs_1.ne(dppm_vs_3).post();
+        // C34 - dppm_vs_1.ne(dppm_vs_3).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"!=", ((IntVariable)variableList.get(10)).getChocoVar()).post();
 
-        addConstraint("Constraint 28 - dppm_vs_1.ne(dppm_vs_3).post();",
+        addConstraint("C34 - dppm_vs_1.ne(dppm_vs_3).post();",
                 startIdx);
 
-        // Constraint 29 - dppm_vs_1.ne(dppm_vs_4).post();
+        // C35 - dppm_vs_1.ne(dppm_vs_4).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"!=", ((IntVariable)variableList.get(11)).getChocoVar()).post();
 
-        addConstraint("Constraint 29 - dppm_vs_1.ne(dppm_vs_4).post();",
+        addConstraint("C35 - dppm_vs_1.ne(dppm_vs_4).post();",
                 startIdx);
 
-        // Constraint 30 - dppm_vs_1.ne(dppm_vs_5).post();
+        // C36 - dppm_vs_1.ne(dppm_vs_5).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()).post();
 
-        addConstraint("Constraint 30 - dppm_vs_1.ne(dppm_vs_5).post();",
+        addConstraint("C36 - dppm_vs_1.ne(dppm_vs_5).post();",
                 startIdx);
 
-        // Constraint 31 - dppm_vs_2.ne(dppm_vs_3).post();
+        // C37 - dppm_vs_2.ne(dppm_vs_3).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"!=", ((IntVariable)variableList.get(10)).getChocoVar()).post();
 
-        addConstraint("Constraint 31 - dppm_vs_2.ne(dppm_vs_3).post();",
+        addConstraint("C37 - dppm_vs_2.ne(dppm_vs_3).post();",
                 startIdx);
 
-        // Constraint 32 - dppm_vs_2.ne(dppm_vs_4).post();
+        // C38 - dppm_vs_2.ne(dppm_vs_4).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"!=", ((IntVariable)variableList.get(11)).getChocoVar()).post();
 
-        addConstraint("Constraint 32 - dppm_vs_2.ne(dppm_vs_4).post();",
+        addConstraint("C38 - dppm_vs_2.ne(dppm_vs_4).post();",
                 startIdx);
 
-        // Constraint 33 - dppm_vs_2.ne(dppm_vs_5).post();
+        // C39 - dppm_vs_2.ne(dppm_vs_5).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()).post();
 
-        addConstraint("Constraint 33 - dppm_vs_2.ne(dppm_vs_5).post();",
+        addConstraint("C39 - dppm_vs_2.ne(dppm_vs_5).post();",
                 startIdx);
 
-        // Constraint 34 - dppm_vs_3.ne(dppm_vs_4).post();
+        // C40 - dppm_vs_3.ne(dppm_vs_4).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"!=", ((IntVariable)variableList.get(11)).getChocoVar()).post();
 
-        addConstraint("Constraint 34 - dppm_vs_3.ne(dppm_vs_4).post();",
+        addConstraint("C40 - dppm_vs_3.ne(dppm_vs_4).post();",
                 startIdx);
 
-        // Constraint 35 - dppm_vs_3.ne(dppm_vs_5).post();
+        // C41 - dppm_vs_3.ne(dppm_vs_5).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()).post();
 
-        addConstraint("Constraint 35 - dppm_vs_3.ne(dppm_vs_5).post();",
+        addConstraint("C41 - dppm_vs_3.ne(dppm_vs_5).post();",
                 startIdx);
 
-        // Constraint 36 - dppm_vs_4.ne(dppm_vs_5).post();
+        // C42 - dppm_vs_4.ne(dppm_vs_5).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(11)).getChocoVar(),"!=", ((IntVariable)variableList.get(12)).getChocoVar()).post();
 
-        addConstraint("Constraint 36 - dppm_vs_4.ne(dppm_vs_5).post();",
+        addConstraint("C42 - dppm_vs_4.ne(dppm_vs_5).post();",
                 startIdx);
     }
 
     private void constraintGroup3() {
-        // Constraint 37 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
+        // C43 - m.arithm(dppm_vs_0, "<", dppm_vs_1).post();
         int startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"<", ((IntVariable)variableList.get(8)).getChocoVar()).post();
 
-        addConstraint("Constraint 37 - m.arithm(dppm_vs_0, \"<\", dppm_vs_1).post();",
+        addConstraint("c1 - m.arithm(dppm_vs_0, \"<\", dppm_vs_1).post();",
                 startIdx);
 
-        // Constraint 38 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
+        // C44 - m.arithm(dppm_vs_0, "<", dppm_vs_2).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"<", ((IntVariable)variableList.get(9)).getChocoVar()).post();
 
-        addConstraint("Constraint 38 - m.arithm(dppm_vs_0, \"<\", dppm_vs_2).post();",
+        addConstraint("c2 - m.arithm(dppm_vs_0, \"<\", dppm_vs_2).post();",
                 startIdx);
 
-        // Constraint 39 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
+        // C45 - m.arithm(dppm_vs_0, "<", dppm_vs_3).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"<", ((IntVariable)variableList.get(10)).getChocoVar()).post();
 
-        addConstraint("Constraint 39 - m.arithm(dppm_vs_0, \"<\", dppm_vs_3).post();",
+        addConstraint("c3 - m.arithm(dppm_vs_0, \"<\", dppm_vs_3).post();",
                 startIdx);
 
-        // Constraint 40 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
+        // C46 - m.arithm(dppm_vs_0, "<", dppm_vs_4).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"<", ((IntVariable)variableList.get(11)).getChocoVar()).post();
 
-        addConstraint("Constraint 40 - m.arithm(dppm_vs_0, \"<\", dppm_vs_4).post();",
+        addConstraint("c4 - m.arithm(dppm_vs_0, \"<\", dppm_vs_4).post();",
                 startIdx);
 
-        // Constraint 41 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
+        // C47 - m.arithm(dppm_vs_0, "<", dppm_vs_5).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(7)).getChocoVar(),"<", ((IntVariable)variableList.get(12)).getChocoVar()).post();
 
-        addConstraint("Constraint 41 - m.arithm(dppm_vs_0, \"<\", dppm_vs_5).post();",
+        addConstraint("c5 - m.arithm(dppm_vs_0, \"<\", dppm_vs_5).post();",
                 startIdx);
 
-        // Constraint 42 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
+        // C48 - m.arithm(dppm_vs_1, "<", dppm_vs_6).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"<", ((IntVariable)variableList.get(13)).getChocoVar()).post();
 
-        addConstraint("Constraint 42 - m.arithm(dppm_vs_1, \"<\", dppm_vs_6).post();",
+        addConstraint("c6 - m.arithm(dppm_vs_1, \"<\", dppm_vs_6).post();",
                 startIdx);
 
-        // Constraint 43 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
+        // C49 - m.arithm(dppm_vs_2, "<", dppm_vs_6).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"<", ((IntVariable)variableList.get(13)).getChocoVar()).post();
 
-        addConstraint("Constraint 43 - m.arithm(dppm_vs_2, \"<\", dppm_vs_6).post();",
+        addConstraint("c7 - m.arithm(dppm_vs_2, \"<\", dppm_vs_6).post();",
                 startIdx);
 
-        // Constraint 44 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
+        // C50 - m.arithm(dppm_vs_3, "<", dppm_vs_6).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"<", ((IntVariable)variableList.get(13)).getChocoVar()).post();
 
-        addConstraint("Constraint 44 - m.arithm(dppm_vs_3, \"<\", dppm_vs_6).post();",
+        addConstraint("c8 - m.arithm(dppm_vs_3, \"<\", dppm_vs_6).post();",
                 startIdx);
 
-        // Constraint 45 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
+        // C51 - m.arithm(dppm_vs_4, "<", dppm_vs_6).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(11)).getChocoVar(),"<", ((IntVariable)variableList.get(13)).getChocoVar()).post();
 
-        addConstraint("Constraint 45 - m.arithm(dppm_vs_4, \"<\", dppm_vs_6).post();",
+        addConstraint("c9 - m.arithm(dppm_vs_4, \"<\", dppm_vs_6).post();",
                 startIdx);
 
-        // Constraint 46 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
+        // C52 - m.arithm(dppm_vs_5, "<", dppm_vs_6).post();
         startIdx = modelKB.getNbCstrs();
         modelKB.arithm(((IntVariable)variableList.get(12)).getChocoVar(),"<", ((IntVariable)variableList.get(13)).getChocoVar()).post();
 
-        addConstraint("Constraint 46 - m.arithm(dppm_vs_5, \"<\", dppm_vs_6).post();",
+        addConstraint("c10 - m.arithm(dppm_vs_5, \"<\", dppm_vs_6).post();",
+                startIdx);
+
+        // C53 - m.arithm(dppm_vs_3, "<", dppm_vs_0).post();
+//        startIdx = modelKB.getNbCstrs();
+//        modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"<", ((IntVariable)variableList.get(7)).getChocoVar()).post();
+//
+//        addConstraint("c11 - m.arithm(dppm_vs_3, \"<\", dppm_vs_0).post();",
+//                startIdx);
+
+        // C54 - constraint c[12] -> ((vs[1] < vs[2] /\ vs[3] < vs[2]) -> vm[2] = 0);
+        startIdx = modelKB.getNbCstrs();
+        modelKB.ifThen(modelKB.and(modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"<", ((IntVariable)variableList.get(9)).getChocoVar()),
+                        modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"<", ((IntVariable)variableList.get(9)).getChocoVar())),
+                modelKB.arithm(((IntVariable)variableList.get(2)).getChocoVar(),"=",0));
+
+        addConstraint("c12 - constraint c[12] -> ((vs[1] < vs[2] /\\ vs[3] < vs[2]) -> vm[2] = 0);",
+                startIdx);
+
+        // C55 - constraint c[13] -> ((vs[2] < vs[3] /\ vs[4] < vs[3]) -> vm[3] = 0);
+        startIdx = modelKB.getNbCstrs();
+        modelKB.ifThen(modelKB.and(modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"<", ((IntVariable)variableList.get(10)).getChocoVar()),
+                        modelKB.arithm(((IntVariable)variableList.get(11)).getChocoVar(),"<", ((IntVariable)variableList.get(10)).getChocoVar())),
+                modelKB.arithm(((IntVariable)variableList.get(3)).getChocoVar(),"=",0));
+
+        addConstraint("c13 - constraint c[13] -> ((vs[2] < vs[3] /\\ vs[4] < vs[3]) -> vm[3] = 0);",
+                startIdx);
+
+        // C56 - constraint c[14] -> ((vs[3] < vs[4] /\ vs[5] < vs[4]) -> vm[4] = 0);
+        startIdx = modelKB.getNbCstrs();
+        modelKB.ifThen(modelKB.and(modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"<", ((IntVariable)variableList.get(11)).getChocoVar()),
+                        modelKB.arithm(((IntVariable)variableList.get(12)).getChocoVar(),"<", ((IntVariable)variableList.get(11)).getChocoVar())),
+                modelKB.arithm(((IntVariable)variableList.get(4)).getChocoVar(),"=",0));
+
+        addConstraint("c14 - constraint c[14] -> ((vs[3] < vs[4] /\\ vs[5] < vs[4]) -> vm[4] = 0);",
                 startIdx);
     }
 
     private void constraintGroup4() {
-        // Constraint 47 - m.element(v_tmp_1, new int[]{0,0,0,0}, dppm_vm_2).post();
+        // C57 - m.max(dppm_vmakespan, vs_array).post();
         int startIdx = modelKB.getNbCstrs();
-        modelKB.element(((BoolVariable)variableList.get(14)).getChocoVar(), new int[]{0,0,0,0}, ((IntVariable)variableList.get(2)).getChocoVar()).post();
-
-        addConstraint("Constraint 47 - m.element(v_tmp_1, new int[]{0,0,0,0}, dppm_vm_2).post();",
-                startIdx);
-
-        // Constraint 48 - m.or(new Constraint[]{m.not( m.and( new Constraint[]{ m.arithm(dppm_vs_1, "<", dppm_vs_2),
-        //                                                                       m.arithm(dppm_vs_3, "<", dppm_vs_2)})),
-        //                                       m.arithm(v_tmp_1, "=", 1)}).post();
-        startIdx = modelKB.getNbCstrs();
-        modelKB.or(modelKB.not(modelKB.and(modelKB.arithm(((IntVariable)variableList.get(8)).getChocoVar(),"<", ((IntVariable)variableList.get(9)).getChocoVar()),
-                                            modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"<", ((IntVariable)variableList.get(9)).getChocoVar()))),
-                    modelKB.arithm(((BoolVariable)variableList.get(14)).getChocoVar(),"=", 1)).post();
-
-        addConstraint("Constraint 48 - m.or(new Constraint[]{m.not(m.and(new Constraint[]{m.arithm(dppm_vs_1, \"<\", dppm_vs_2), m.arithm(dppm_vs_3, \"<\", dppm_vs_2)})), m.arithm(v_tmp_1, \"=\", 1)}).post();",
-                startIdx);
-
-        // Constraint 49 - m.element(v_tmp_2, new int[]{0,0,0,0}, dppm_vm_3).post();
-        startIdx = modelKB.getNbCstrs();
-        modelKB.element(((BoolVariable)variableList.get(15)).getChocoVar(), new int[]{0,0,0,0}, ((IntVariable)variableList.get(3)).getChocoVar()).post();
-
-        addConstraint("Constraint 49 - m.element(v_tmp_2, new int[]{0,0,0,0}, dppm_vm_3).post();",
-                startIdx);
-
-        // Constraint 50 - m.or(new Constraint[]{m.not(m.and(new Constraint[]{m.arithm(dppm_vs_2, "<", dppm_vs_3),
-        //                                                                    m.arithm(dppm_vs_4, "<", dppm_vs_3)})),
-        //                                       m.arithm(v_tmp_2, "=", 1)}).post();
-        startIdx = modelKB.getNbCstrs();
-        modelKB.or(modelKB.not(modelKB.and(modelKB.arithm(((IntVariable)variableList.get(9)).getChocoVar(),"<", ((IntVariable)variableList.get(10)).getChocoVar()),
-                                           modelKB.arithm(((IntVariable)variableList.get(11)).getChocoVar(),"<", ((IntVariable)variableList.get(10)).getChocoVar()))),
-                    modelKB.arithm(((BoolVariable)variableList.get(15)).getChocoVar(),"=", 1)).post();
-
-        addConstraint("Constraint 50 - m.or(new Constraint[]{m.not(m.and(new Constraint[]{m.arithm(dppm_vs_2, \"<\", dppm_vs_3), m.arithm(dppm_vs_4, \"<\", dppm_vs_3)})), m.arithm(v_tmp_2, \"=\", 1)}).post();",
-                startIdx);
-
-        // Constraint 51 - m.element(v_tmp_3, new int[]{0,0,0,0}, dppm_vm_4).post();
-        startIdx = modelKB.getNbCstrs();
-        modelKB.element(((BoolVariable)variableList.get(16)).getChocoVar(), new int[]{0,0,0,0}, ((IntVariable)variableList.get(4)).getChocoVar()).post();
-
-        addConstraint("Constraint 51 - m.element(v_tmp_3, new int[]{0,0,0,0}, dppm_vm_4).post();",
-                startIdx);
-
-        // Constraint 52 - m.or(new Constraint[]{m.not(m.and(new Constraint[]{m.arithm(dppm_vs_3, "<", dppm_vs_4),
-        //                                                                    m.arithm(dppm_vs_5, "<", dppm_vs_4)})),
-        //                                       m.arithm(v_tmp_3, "=", 1)}).post();
-        startIdx = modelKB.getNbCstrs();
-        modelKB.or(modelKB.not(modelKB.and(modelKB.arithm(((IntVariable)variableList.get(10)).getChocoVar(),"<", ((IntVariable)variableList.get(11)).getChocoVar()),
-                                           modelKB.arithm(((IntVariable)variableList.get(12)).getChocoVar(),"<", ((IntVariable)variableList.get(11)).getChocoVar()))),
-                    modelKB.arithm(((BoolVariable)variableList.get(16)).getChocoVar(),"=", 1)).post();
-
-        addConstraint("Constraint 52 - m.or(new Constraint[]{m.not(m.and(new Constraint[]{m.arithm(dppm_vs_3, \"<\", dppm_vs_4), m.arithm(dppm_vs_5, \"<\", dppm_vs_4)})), m.arithm(v_tmp_3, \"=\", 1)}).post();",
-                startIdx);
-
-        // Constraint 53 - m.max(dppm_vmakespan, vs_array).post();
-        startIdx = modelKB.getNbCstrs();
         IntVar[] vs_array = new IntVar[]{((IntVariable)variableList.get(7)).getChocoVar(),
                 ((IntVariable)variableList.get(8)).getChocoVar(),
                 ((IntVariable)variableList.get(9)).getChocoVar(),
@@ -606,14 +647,14 @@ public class NOK1_1KB extends KB {
                 ((IntVariable)variableList.get(13)).getChocoVar()};
         modelKB.max(((IntVariable)variableList.get(17)).getChocoVar(), vs_array).post();
 
-        addConstraint("Constraint 53 - m.max(dppm_vmakespan, vs_array).post();",
+        addConstraint("C57 - m.max(dppm_vmakespan, vs_array).post();",
                 startIdx);
 
-        // Constraint 54 - dppm_vmakespan.le(5).post();
+        // C58 - dppm_vmakespan.le(5).post();
         startIdx = modelKB.getNbCstrs();
-        modelKB.arithm(((IntVariable)variableList.get(17)).getChocoVar(), ">=", 5).post();
+        modelKB.arithm(((IntVariable)variableList.get(17)).getChocoVar(), "<=", 5).post();
 
-        addConstraint("Constraint 54 - dppm_vmakespan.le(5).post();",
+        addConstraint("c15 - dppm_vmakespan.le(5).post();",
                 startIdx);
     }
 
