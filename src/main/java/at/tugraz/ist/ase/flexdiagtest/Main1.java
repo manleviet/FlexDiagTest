@@ -23,21 +23,36 @@ import static at.tugraz.ist.ase.cacdr.algorithms.FlexDiag.TIMER_FLEXDIAG;
 import static at.tugraz.ist.ase.cacdr.algorithms.QuickXPlain.TIMER_QUICKXPLAIN;
 import static at.tugraz.ist.ase.cacdr.algorithms.hsdag.AbstractHSConstructor.TIMER_CONFLICT;
 import static at.tugraz.ist.ase.cacdr.checker.ChocoConsistencyChecker.TIMER_SOLVER;
-import static at.tugraz.ist.ase.cacdr.eval.CAEvaluator.printPerformance;
 import static at.tugraz.ist.ase.common.ConstraintUtils.convertToStringWithMessage;
 import static at.tugraz.ist.ase.eval.evaluator.PerformanceEvaluator.getTimer;
 
 /**
  * Main class for the FlexDiag testing.
  */
-public class Main {
+public class Main1 {
     public static void main(String[] args) {
         // uncomment one of the following KBs to choose a KB to use
 //        KB kb = new NOK1_1KB(); // initialize the knowledge base model_1_nok_1
 //        KB kb = new NOK1_2KB(); // initialize the knowledge base model_1_nok_2
-        KB kb = new NOK1_3KB(); // initialize the knowledge base model_1_nok_3
+//        KB kb = new NOK1_3KB(); // initialize the knowledge base model_1_nok_3
+        KB kb = new NOK1_3KB_new();
 //        KB kb = new NOK2KB(); // initialize the knowledge base model_2_nok
 //        KB kb = new NOK3KB(); // initialize the knowledge base model_2_nok
+
+//        System.out.println("dppm_vm_0:" + kb.getIntVar("dppm_vm_0").getDomainSize());
+//        System.out.println("dppm_vm_1:" + kb.getIntVar("dppm_vm_1").getDomainSize());
+//        System.out.println("dppm_vm_2:" + kb.getIntVar("dppm_vm_2").getDomainSize());
+//        System.out.println("dppm_vm_3:" + kb.getIntVar("dppm_vm_3").getDomainSize());
+//        System.out.println("dppm_vm_4:" + kb.getIntVar("dppm_vm_4").getDomainSize());
+//        System.out.println("dppm_vm_5:" + kb.getIntVar("dppm_vm_5").getDomainSize());
+//        System.out.println("dppm_vm_6:" + kb.getIntVar("dppm_vm_6").getDomainSize());
+//        System.out.println("dppm_vs_0:" + kb.getIntVar("dppm_vs_0").getDomainSize());
+//        System.out.println("dppm_vs_1:" + kb.getIntVar("dppm_vs_1").getDomainSize());
+//        System.out.println("dppm_vs_2:" + kb.getIntVar("dppm_vs_2").getDomainSize());
+//        System.out.println("dppm_vs_3:" + kb.getIntVar("dppm_vs_3").getDomainSize());
+//        System.out.println("dppm_vs_4:" + kb.getIntVar("dppm_vs_4").getDomainSize());
+//        System.out.println("dppm_vs_5:" + kb.getIntVar("dppm_vs_5").getDomainSize());
+//        System.out.println("dppm_vs_6:" + kb.getIntVar("dppm_vs_6").getDomainSize());
 
         // print the KB
         // uncomment to print the KB's constraints
@@ -49,8 +64,7 @@ public class Main {
 //        }
 
         // create an object of the conflict detection and resolution model
-        NOKModel model = new NOKModel(kb); // C contains all constraints
-//        NOKModel_13 model = new NOKModel_13(kb); // only use when kb is NOK1_3KB. In this model, C contains 15 constraints.
+        NOKModel_new model = new NOKModel_new(kb);
         // initialize the model, i.e. set the KB's constraints to the model's two sets - the set of possibly faulty constraints (C)
         // and the set of correct constraints (background knowledge - B)
         model.initialize();
