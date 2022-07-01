@@ -3,8 +3,8 @@ package at.tugraz.ist.ase.flexdiagtest;
 import at.tugraz.ist.ase.cdrmodel.CDRModel;
 import at.tugraz.ist.ase.cdrmodel.IChocoModel;
 import at.tugraz.ist.ase.common.LoggerUtils;
-import at.tugraz.ist.ase.knowledgebases.core.Constraint;
-import at.tugraz.ist.ase.knowledgebases.core.KB;
+import at.tugraz.ist.ase.kb.core.Constraint;
+import at.tugraz.ist.ase.kb.core.KB;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.chocosolver.solver.Model;
@@ -32,11 +32,11 @@ public class NOKModel_13 extends CDRModel implements IChocoModel {
 
     @Override
     public void initialize() {
-        log.debug("{}Initializing the model for {} >>>", LoggerUtils.tab, getName());
+        log.debug("{}Initializing the model for {} >>>", LoggerUtils.tab(), getName());
         LoggerUtils.indent();
 
         // sets possibly faulty constraints to super class
-        log.trace("{}Adding possibly faulty constraints", LoggerUtils.tab);
+        log.trace("{}Adding possibly faulty constraints", LoggerUtils.tab());
         List<Constraint> C = new LinkedList<>();
 //        Collections.reverse(C);
         C.add(kb.getConstraint(43));
@@ -58,7 +58,7 @@ public class NOKModel_13 extends CDRModel implements IChocoModel {
         this.setPossiblyFaultyConstraints(C);
 
         // sets correct constraints to super class
-        log.trace("{}Adding correct constraints", LoggerUtils.tab);
+        log.trace("{}Adding correct constraints", LoggerUtils.tab());
         List<Constraint> B = new LinkedList<>();
         B.add(kb.getConstraint(0));
         B.add(kb.getConstraint(1));
@@ -109,7 +109,7 @@ public class NOKModel_13 extends CDRModel implements IChocoModel {
         model.unpost(model.getCstrs());
 
         LoggerUtils.outdent();
-        log.debug("{}<<< Model {} initialized", LoggerUtils.tab, getName());
+        log.debug("{}<<< Model {} initialized", LoggerUtils.tab(), getName());
     }
 
     private void createUserRequirements() {

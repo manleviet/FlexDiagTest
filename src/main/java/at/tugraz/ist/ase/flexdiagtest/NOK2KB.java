@@ -1,7 +1,7 @@
 package at.tugraz.ist.ase.flexdiagtest;
 
 import at.tugraz.ist.ase.common.LoggerUtils;
-import at.tugraz.ist.ase.knowledgebases.core.*;
+import at.tugraz.ist.ase.kb.core.*;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.chocosolver.solver.Model;
@@ -23,7 +23,7 @@ public class NOK2KB extends KB {
 
     @Override
     public void reset(boolean hasNegativeConstraints) {
-        log.trace("{}Creating NOK2 >>>", LoggerUtils.tab);
+        log.trace("{}Creating NOK2 >>>", LoggerUtils.tab());
         LoggerUtils.indent();
 
         modelKB = new Model(name);
@@ -35,11 +35,11 @@ public class NOK2KB extends KB {
         defineConstraints(hasNegativeConstraints);
 
         LoggerUtils.outdent();
-        log.debug("{}<<< Created NOK2", LoggerUtils.tab);
+        log.debug("{}<<< Created NOK2", LoggerUtils.tab());
     }
 
     private void defineDomains() {
-        log.trace("{}Defining domains >>>", LoggerUtils.tab);
+        log.trace("{}Defining domains >>>", LoggerUtils.tab());
         LoggerUtils.indent();
 
         domainList.add(Domain.builder()
@@ -165,11 +165,11 @@ public class NOK2KB extends KB {
                 .build());
 
         LoggerUtils.outdent();
-        log.debug("{}<<< Created domains", LoggerUtils.tab);
+        log.debug("{}<<< Created domains", LoggerUtils.tab());
     }
 
     public void defineVariables (){
-        log.trace("{}Defining variables >>", LoggerUtils.tab);
+        log.trace("{}Defining variables >>", LoggerUtils.tab());
         LoggerUtils.indent();
 
         List<String> varNames = List.of("dppm_vm_0", "dppm_vm_1", "dppm_vm_2", "dppm_vm_3", "dppm_vm_4", "dppm_vm_5", "dppm_vm_6",
@@ -202,11 +202,11 @@ public class NOK2KB extends KB {
         variableList.add(var);
 
         LoggerUtils.outdent();
-        log.debug("{}<<< Created variables", LoggerUtils.tab);
+        log.debug("{}<<< Created variables", LoggerUtils.tab());
     }
 
     public void defineConstraints(boolean hasNegativeConstraints) {
-        log.trace("{}Defining constraints >>>", LoggerUtils.tab);
+        log.trace("{}Defining constraints >>>", LoggerUtils.tab());
         LoggerUtils.indent();
 
         constraintGroup1();
@@ -215,7 +215,7 @@ public class NOK2KB extends KB {
         constraintGroup4();
 
         LoggerUtils.outdent();
-        log.debug("{}<<< Created constraints", LoggerUtils.tab);
+        log.debug("{}<<< Created constraints", LoggerUtils.tab());
     }
 
     private void constraintGroup1() {
