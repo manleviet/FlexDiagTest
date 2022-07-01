@@ -1,6 +1,7 @@
 package at.tugraz.ist.ase.flexdiagtest;
 
 import at.tugraz.ist.ase.cacdr.algorithms.FastDiagV2;
+import at.tugraz.ist.ase.cacdr.algorithms.FastDiagV3;
 import at.tugraz.ist.ase.cacdr.algorithms.FlexDiag;
 import at.tugraz.ist.ase.cacdr.algorithms.QuickXPlain;
 import at.tugraz.ist.ase.cacdr.algorithms.hs.HSDAG;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 import static at.tugraz.ist.ase.cacdr.algorithms.FastDiagV2.TIMER_FASTDIAGV2;
+import static at.tugraz.ist.ase.cacdr.algorithms.FastDiagV3.TIMER_FASTDIAGV3;
 import static at.tugraz.ist.ase.cacdr.algorithms.FlexDiag.TIMER_FLEXDIAG;
 import static at.tugraz.ist.ase.cacdr.algorithms.QuickXPlain.TIMER_QUICKXPLAIN;
 import static at.tugraz.ist.ase.cacdr.algorithms.hs.AbstractHSConstructor.TIMER_NODE_LABEL;
@@ -156,10 +158,10 @@ public class Main {
 
         // FASTDIAG
         // run the fastDiag to find diagnoses
-        FastDiagV2 fastDiag = new FastDiagV2(checker);
+        FastDiagV3 fastDiag = new FastDiagV3(checker);
 
         CAEvaluator.reset();
-        setCommonTimer(TIMER_FASTDIAGV2);
+        setCommonTimer(TIMER_FASTDIAGV3);
         setCommonTimer(TIMER_SOLVER);
         Set<Constraint> firstDiag = fastDiag.findDiagnosis(C, AC);
 
@@ -170,7 +172,7 @@ public class Main {
             System.out.println("=========================================");
             System.out.println("One diagnosis found by FastDiag:");
             System.out.println(firstDiag);
-            System.out.println("Time for FastDiag: " + ((double) totalCommon(TIMER_FASTDIAGV2) / 1_000_000_000.0));
+            System.out.println("Time for FastDiag: " + ((double) totalCommon(TIMER_FASTDIAGV3) / 1_000_000_000.0));
             System.out.println("Time for solver: " + ((double) totalCommon(TIMER_SOLVER) / 1_000_000_000.0));
             printPerformance();
 
